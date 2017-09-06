@@ -1,0 +1,254 @@
+<html lang="zh-cmn-Hans"><head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>单号查询结果 - 快递100</title>
+<meta name="Keywords" content="快递单号查询结果">
+<meta name="Description" content="快递100，单号查询结果页面。包含快递包裹目前所在地、签收时间、派送人员等所有流转环节的信息。">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<link rel="apple-touch-icon" href="https://cdn.kuaidi100.com/images/touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://cdn.kuaidi100.com/images/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://cdn.kuaidi100.com/images/touch-icon-iphone4.png">
+<link rel="shortcut icon" href="https://cdn.kuaidi100.com/favicon.ico">
+<link rel="icon" type="image/gif" href="https://cdn.kuaidi100.com/images/favicon.gif">
+<link rel="stylesheet" href="https://cdn.kuaidi100.com/css/smart/mbase_v4.css?version=201707191039">
+<link rel="stylesheet" href="https://cdn.kuaidi100.com/css/smart/query_v4.css?version=201707191039">
+</head>
+<body>
+<input type="hidden" id="callbackUrl" value="">
+<input value="m_result_banner,m_result_redpacket" data-platform="m" hidden="" id="pageId">
+<div class="container">
+  
+<aside id="menu" style="display: none;">
+    <article>
+    <!--判断来自第三方app:不显示登录状态-->
+        <div class="third-title fthirdApp">
+        <p>欢迎来到快递100</p>
+        </div>
+        <!--<div class="fthird-line fthirdApp"></div>-->
+      <div class="kd-menu" id="menuList">
+        <ul>
+        <li id="welcome" onclick="location.href='https://sso.kuaidi100.com/m'"><a href="https://sso.kuaidi100.com/m/"><p>登录/注册</p><p>登录后享受更多特权</p></a></li>
+        <li class="hidden user-info" id="userInfo" onclick="location.href='https://sso.kuaidi100.com/m'" style="display: none;">
+          <span class="user-img"><img src="" id="userImg"></span>
+          <a href="https://sso.kuaidi100.com/m/">
+            <p class="user-name" id="userName"></p>
+            <p class="fs12px">欢迎来到快递100</p>
+          </a>
+         </li>
+        </ul>
+        <ul class="menu-part">
+            <li class="deHistory jj"><a href="https://m.kuaidi100.com/morder/history.jsp">我的寄件</a></li>
+            <li id="queryRecord" class="cj"><a href="https://buyer.kuaidi100.com/m/index.shtml">我的查件</a></li>
+            <li class="yhq"><a href="https://sso.kuaidi100.com/m/coupon.jsp">优惠券</a></li>
+            <li class="deHistory dz"><a href="https://sso.kuaidi100.com/m/address.jsp">地址管理</a></li>
+            <p class="txt-line"></p>
+          <li class="kd"><a href="https://m.kuaidi100.com/all/">快递大全</a></li>
+          <li class="wd"><a href="https://m.kuaidi100.com/network/clist.jsp">网点大全</a></li>
+          <li class="part1-last gj"><a href="https://m.kuaidi100.com/global/">国际快递</a></li>
+          <li class="dh"><a href="https://m.kuaidi100.com/network/plist.jsp">电话大全</a></li>
+          <li class="sx"><a href="https://m.kuaidi100.com/time/">时效查询</a></li>
+          <li class="jg"><a href="https://m.kuaidi100.com/price/">价格查询</a></li>
+        </ul>
+        <ul class="menu-txt">
+          <p class="txt-line"></p>
+          <!-- <li><a href="http://weibo.com/kuaidi100" target="_blank">关注微博</a></li>
+          <li><a href="https://m.kuaidi100.com/help/weixin.jsp" target="_blank">关注微信</a></li> -->
+          <li class="xx"><a href="https://m.kuaidi100.com/ucenter/message.jsp">我的消息</a></li>
+          <li class="fk" id="meiqiaFeedback"><a>意见反馈</a></li>
+          <li class="gy"><a href="https://m.kuaidi100.com/about/index.jsp">关于我们</a></li>
+         <!--  <li><a href="https://m.kuaidi100.com/about/join.jsp">加入我们</a></li>
+          <li><a id="viewPage">访问PC版</a></li> -->
+          <!-- <li id="userLogout"><a class="mlogout"onclick="logout();return false;">退出登录</a></li>
+          <li ><a class="mlogout"></a></li> -->
+        </ul>
+      </div>
+    </article>
+  </aside>
+  <div id="main" class="main">
+    <header><a class="a-menu a-menu-new" id="menuBtn">菜单</a><a href="https://m.kuaidi100.com/" class="a-selected">查快递</a><a href="https://m.kuaidi100.com/courier/">寄快递</a><a href="https://m.kuaidi100.com/all/">快递大全</a></header>
+    <article style="">
+      <div class="kd-content" id="content" style="min-height: 568px;">
+        <div style="height:3rem"></div>
+        <section class="com-info">
+          <div class="info1 hidden" style="display: block;"><a class="a-changecom"><img id="comImg" class="hidden" alt="申通快递" style="display: inline;" src="https://cdn.kuaidi100.com/images/all/56/shentong.png"></a><select id="comSelect"></select></div>
+          <div class="info2 input-box">
+            <form id="queryForm">
+              <input type="hidden" id="companyCode" name="com" value="shentong"><input type="text" id="queryInput" class="num-inp" name="nu" placeholder="请输入快递单号" autocomplete="off" value="402650078930">
+              <div class="scan" id="scanBtn"><span></span></div>
+              <a id="queryBtn" class="query-btn">查询</a>
+              <div class="clear-x hidden" id="clearBtn"></div>
+            </form>
+            <div class="relative hidden" id="history">
+              <div class="input-droplist">
+                  <ul id="historyListCom"></ul>
+                  <div><a id="clearHistory">清除历史记录</a><a id="historyCloseBtn">关闭</a></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="loading hidden" id="loadingBox" style="display: none;">
+          <div class="loading-box">
+            <p><img class="img-loading" src="https://cdn.kuaidi100.com/images/smart/order/loading.gif"></p>
+            <p id="loadingText">奋力加载中</p>
+          </div>
+        </div>
+        <section class="result-box hidden" id="resultBox" style="display: block;">
+          <div class="result-success" id="success" style="">
+            <div class="result-top" id="resultTop">
+              <span id="sortSpan" class="col1-down" title="切换排序">时间</span>
+              <span class="col2">地点和跟踪进度</span>
+              <div id="redPacket" class="red-packet"><a id="m" data-pos="m_result_redpacket" data-id="bf9bc4bf-30c1-42a5-8619-99486854e8c4" data-url="https://engine.lvehaisen.com/index/activity?appKey=4BMradAosgtcWARZbejQya8fD6WS&amp;adslotId=2313"><img src="https://cdn.kuaidi100.com/images/open/appads/99999.png"></a></div>
+            </div>
+            <ul id="result" class="result-list">
+                                        <li class="last">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.06</dt>
+                    <dd>07:30</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="">湖南长沙四方坪分部</a>】没有人了，分部暂停服务。很抱歉对您造成不便。</div>
+        </li>
+
+                                <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.05</dt>
+                    <dd>07:30</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="">湖南长沙四方坪分部</a>】没有人了，分部暂停服务。很抱歉对您造成不便。</div>
+        </li>
+
+                        <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.04</dt>
+                    <dd>07:30</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="">湖南长沙四方坪分部</a>】接替工作的快递小哥昨天派件时出车祸了，分部暂停服务。工作将没有人接替，很抱歉对您造成不便。</div>
+        </li>
+
+                <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.03</dt>
+                    <dd>09:35</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="">湖南长沙四方坪分部</a>】接替工作的副经理今天凌晨因急性阑尾炎住院，分部暂停服务。工作将暂由快递小哥接替，很抱歉对您造成不便。</div>
+        </li>
+     
+         <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.02</dt>
+                    <dd>08:10</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="">湖南长沙四方坪分部</a>】分部经理带着小姨子跑路了，分部暂停服务。工作将暂由副经理接替，很抱歉对您造成不便。</div>
+        </li>
+        <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.01</dt>
+                    <dd>19:48</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="">湖南长沙中转部</a>】发【<a href="">湖南长沙四方坪分部</a>】</div>
+        </li>
+        <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.01</dt>
+                    <dd>05:51</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E7%A6%8F%E7%94%B0%E8%88%AA%E7%A9%BA%E9%83%A8&amp;area=%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E7%A6%8F%E7%94%B0%E8%88%AA%E7%A9%BA%E9%83%A8&amp;company=5&amp;comname=申通">广东深圳福田航空部</a>】发【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E6%B9%96%E5%8D%97%E9%95%BF%E6%B2%99%E8%88%AA%E7%A9%BA%E9%83%A8&amp;area=%E6%B9%96%E5%8D%97%E9%95%BF%E6%B2%99%E8%88%AA%E7%A9%BA%E9%83%A8&amp;company=5&amp;comname=申通">湖南长沙航空部</a>】</div>
+        </li>
+        <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.09.01</dt>
+                    <dd>05:51</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E7%A6%8F%E7%94%B0%E8%88%AA%E7%A9%BA%E9%83%A8&amp;area=%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E7%A6%8F%E7%94%B0%E8%88%AA%E7%A9%BA%E9%83%A8&amp;company=5&amp;comname=申通">广东深圳福田航空部</a>】正在进【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E8%A3%85%E8%BD%A6&amp;area=%E8%A3%85%E8%BD%A6&amp;company=5&amp;comname=申通">装车</a>】扫描</div>
+        </li>
+        <li class="">
+            <div class="col1">
+                <dl>
+                    <dt>2017.08.31</dt>
+                    <dd>23:44</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="line2"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E7%BD%97%E6%B9%96%E4%B8%AD%E8%BD%AC%E9%83%A8&amp;area=%E5%B9%BF%E4%B8%9C%E6%B7%B1%E5%9C%B3%E7%BD%97%E6%B9%96%E4%B8%AD%E8%BD%AC%E9%83%A8&amp;company=5&amp;comname=申通">广东深圳罗湖中转部</a>】发【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E6%B9%96%E5%8D%97%E9%95%BF%E6%B2%99%E4%B8%AD%E8%BD%AC%E9%83%A8&amp;area=%E6%B9%96%E5%8D%97%E9%95%BF%E6%B2%99%E4%B8%AD%E8%BD%AC%E9%83%A8&amp;company=5&amp;comname=申通">湖南长沙中转部</a>】</div>
+        </li>
+        <li class="first">
+            <div class="col1">
+                <dl>
+                    <dt>2017.08.31</dt>
+                    <dd>21:56</dd>
+                </dl>
+            </div>
+            <div class="col2"><span class="step"><span class="line1"></span><span class="sortup"></span></span></div>
+            <div class="col3">【<a href="https://m.kuaidi100.com/network/?from=fonterm&amp;keyword=%E7%BD%97%E6%B9%96%E5%8D%8E%E5%BC%BA%E5%8C%97%E8%90%A5%E4%B8%9A%E7%82%B9&amp;area=%E7%BD%97%E6%B9%96%E5%8D%8E%E5%BC%BA%E5%8C%97%E8%90%A5%E4%B8%9A%E7%82%B9&amp;company=5&amp;comname=申通">罗湖华强北营业点</a>】的收件员【黄立贤】已收件</div>
+        </li>
+    </ul>
+
+            <div id="kuaidiBoxM" class="bn">
+                <div class="modal-bg" style="height: 0px;"></div>
+                <div class="show-modal" id="showModal" style="display: none;">
+                  <div class="up-to"></div>
+                  <div class="no-interest" id="noInterest">不感兴趣</div>
+                  <div class="close" id="close">关闭广告</div>
+                </div>
+            <div class="show-header" style="border: none;"><span class="show-tips">广告</span><span class="close-more"></span></div><a id="m" data-pos="m_result_banner" data-id="8aa64ab9-9ae5-4dff-b4dc-be72502bcc90" data-url="https://engine.lvehaisen.com/index/activity?appKey=4BMradAosgtcWARZbejQya8fD6WS&amp;adslotId=1892"><img src="https://cdn.kuaidi100.com/images/open/appads/20170906110808.jpg"></a></div>
+            <p><a id="saveBtn" class="result-btn">订阅更新</a></p>
+          </div>
+          <div class="result-fail hidden" id="fail" style="display: none;">
+          	<p>快递100查无记录</p>
+            <p>请核对你的公司和单号是否正确</p>
+            <p><a class="result-btn a-changecom">更改公司</a><a id="saveBtn2" class="result-btn">保存到APP</a></p>
+          </div>
+          <div class="result-fail hidden" id="network" style="display: none;">
+            <p>网络错误</p>
+            <p>请检查您的网络，稍后刷新页面重试</p>
+          </div>
+          <div class="result-fail hidden" id="nocom" style="display: none;">
+          	<p>快递100识别不了单号的公司</p>
+            <p>请核对单号是否正确，或手动选择快递公司</p>
+            <p><a class="result-btn a-choosecom">选择公司</a></p>
+          </div>
+        </section>
+  		
+        <section class="copyright">
+          <p class="copyright-meun"><a id="downApp">下载APP</a><a href="https://m.kuaidi100.com/help/weixin.jsp">关注微信</a></p>
+          <p><a href="https://m.kuaidi100.com/" title="快递100-查快递、寄快递、上快递100"><img src="https://cdn.kuaidi100.com/images/smart/logo_footer.png" style="width: 2.875rem;"></a> 粤ICP备14085002号-5 </p>
+        </section>
+      </div>
+    </article>
+  </div>
+</div>
+<script async="" charset="UTF-8" src="//static.meiqia.com/dist/meiqia.js"></script><script src="https://hm.baidu.com/hm.js?22ea01af58ba2be0fec7c11b25e88e6c"></script><script src="https://cdn.kuaidi100.com/js/util/zepto.min.js?version=201707191039"></script>
+<script>$("#content").css("min-height", $(window).height());</script>
+<script src="https://cdn.kuaidi100.com/js/share/cookie_v4.js?version=201707191039"></script>
+<script src="https://cdn.kuaidi100.com/js/page/smart/base_v4.js?version=201707191039"></script>
+<script src="https://cdn.kuaidi100.com/js/page/smart/new_v4.js?version=201707191039"></script><iframe width="0" height="0" frameborder="0" scrolling="0" src="//cache.kuaidi100.com/index.html?option=add&amp;gCompanyCode=shentong&amp;gKuaidiNumber=402650078930&amp;gIsCheck=0"></iframe>
+<script src="https://cdn.kuaidi100.com/js/share/history.js?version=201707191039"></script>
+<script src="https://cdn.kuaidi100.com/js/share/user_v4.js?version=201707191039"></script>
+<script src="https://cdn.kuaidi100.com/js/share/count.js?version=201707191039"></script>
+<script src="https://cdn.kuaidi100.com/js/share/a_show.js?version=201707191039"></script>
+
+</body></html>
