@@ -1,20 +1,82 @@
-<html lang="zh-cmn-Hans"><head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>单号查询结果 - 快递100</title>
-<meta name="Keywords" content="快递单号查询结果">
-<meta name="Description" content="快递100，单号查询结果页面。包含快递包裹目前所在地、签收时间、派送人员等所有流转环节的信息。">
-<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
-<meta name="format-detection" content="telephone=no">
-<meta name="apple-mobile-web-app-status-bar-style" content="white">
-<link rel="apple-touch-icon" href="https://cdn.kuaidi100.com/images/touch-icon-iphone.png">
-<link rel="apple-touch-icon" sizes="72x72" href="https://cdn.kuaidi100.com/images/touch-icon-ipad.png">
-<link rel="apple-touch-icon" sizes="114x114" href="https://cdn.kuaidi100.com/images/touch-icon-iphone4.png">
-<link rel="shortcut icon" href="https://cdn.kuaidi100.com/favicon.ico">
-<link rel="icon" type="image/gif" href="https://cdn.kuaidi100.com/images/favicon.gif">
-<link rel="stylesheet" href="https://cdn.kuaidi100.com/css/smart/mbase_v4.css?version=201707191039">
-<link rel="stylesheet" href="https://cdn.kuaidi100.com/css/smart/query_v4.css?version=201707191039">
+<html lang="zh-cmn-Hans">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>单号查询结果 - 快递100</title>
+    <meta name="Keywords" content="快递单号查询结果">
+    <meta name="Description" content="快递100，单号查询结果页面。包含快递包裹目前所在地、签收时间、派送人员等所有流转环节的信息。">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-icon" href="https://cdn.kuaidi100.com/images/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.kuaidi100.com/images/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.kuaidi100.com/images/touch-icon-iphone4.png">
+    <link rel="shortcut icon" href="https://cdn.kuaidi100.com/favicon.ico">
+    <link rel="icon" type="image/gif" href="https://cdn.kuaidi100.com/images/favicon.gif">
+    <link rel="stylesheet" href="https://cdn.kuaidi100.com/css/smart/mbase_v4.css?version=201707191039">
+    <link rel="stylesheet" href="https://cdn.kuaidi100.com/css/smart/query_v4.css?version=201707191039">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var obj;
+            $("#result li").click(function () {
+                obj = this;
+                var dt = $(".col1 dl dt", this).text();
+                var dd = $(".col1 dl dd", this).text();
+                var str = $(".col3", this).text();
+                $("#example-date-input").val(dt.replace(/\./g, '-'));
+                $("#example-time-input").val(dd);
+                $("#example-text-input").val(str);
+                $("#newinfo").modal('show');
+            });
+            $("#save").click(function () {
+                $(".col1 dl dt", obj).text($("#example-date-input").val().replace(/-/g, '.'));
+                $(".col1 dl dd", obj).text($("#example-time-input").val());
+                $(".col3", obj).text($("#example-text-input").val());
+                $("#newinfo").modal('hide');
+            });
+        });
+</script>
 </head>
 <body>
+    <div id="newinfo" class="modal fade" tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                            <div class="col-10">
+                                <input class="form-control" type="date" value="" id="example-date-input">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-time-input" class="col-2 col-form-label">Time</label>
+                            <div class="col-10">
+                                <input class="form-control" type="time" value="" id="example-time-input">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="example-text-input" class="col-2 col-form-label">Text</label>
+                            <div class="col-10">
+    <textarea class="form-control" id="example-text-input" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="save">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 <input type="hidden" id="callbackUrl" value="">
 <input value="m_result_banner,m_result_redpacket" data-platform="m" hidden="" id="pageId">
 <div class="container">
